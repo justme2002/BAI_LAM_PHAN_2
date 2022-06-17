@@ -67,7 +67,7 @@
 ...
 
 - Post route:
-	POST http://localhost:8080/create_post?create=public&userId=e2fbdbe3-1e1b-41df-a140-6e155a00fa1e
+	POST http://localhost:8080/create_post?category=public&userId=e2fbdbe3-1e1b-41df-a140-6e155a00fa1e
 	GET http://localhost:8080/get_post
 	GET http://localhost:8080/get_post/e2fbdbe3-1e1b-41df-a140-6e155a00fa1e?type=public (change type to draft if user wants to see draft post)
 	PUT http://localhost:8080/update_post/d8648787-029e-418c-a351-31afbef0aff5
