@@ -88,8 +88,12 @@ AuthController.post("/change_password", async (req: Request, res: Response) => {
   
 //get email and verify old password
     const getUserByEmail = await UserRepository.findOneBy({ email })
-    const verifyPassword = await argon2.verify(getUserByEmail.password, oldPassword)
+    if (!getUserByEmail) return res.status(401).json({
+      success: false,
+      message: "user with this email is not exist"
+    })
 
+    const verifyPassword = await argon2.verify(getUserByEmail.password, oldPassword)
     if (!verifyPassword) return res.status(401).json({
       success: false,
       message: "old password wrong"
