@@ -66,7 +66,7 @@
 - Category route:
 ...
 
-- Post route:
+- Post route: (all post routes need a Bearer token (access token) to access route)
 	POST http://localhost:8080/create_post?category=public&userId=e2fbdbe3-1e1b-41df-a140-6e155a00fa1e
 	GET http://localhost:8080/get_post
 	GET http://localhost:8080/get_post/e2fbdbe3-1e1b-41df-a140-6e155a00fa1e?type=public (change type to draft if user wants to see draft post)
