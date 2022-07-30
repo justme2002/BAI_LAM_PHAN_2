@@ -69,6 +69,34 @@ PostController.get("/get_post", protectedRoute, async (req: Request, res: Respon
   }
 })
 
+//get exact post with ID
+PostController.get("/get_post/:id", protectedRoute, async (req: Request, res: Response) => {
+
+  const { id } = req.params
+
+  try {
+    const PostRepository = dataSource.getRepository(Post)
+    const post = await PostRepository.findOne({
+      where: {
+        id
+      }
+    })
+
+    res.json({
+      success: true,
+      message: "get post successfully",
+      post
+    })
+
+  } catch (error) {
+    console.log(error)
+    res.status(404).json({
+      success: false,
+      message: error
+    })
+  }
+}) 
+
 
 //get post route (belong to user who uploaded it)
 PostController.get("/get_post/:userid", async (req: Request, res: Response) => {
