@@ -79,6 +79,10 @@ PostController.get("/get_post/:id", protectedRoute, async (req: Request, res: Re
     const post = await PostRepository.findOne({
       where: {
         id
+      },
+      relations: {
+        category: true,
+        user: true
       }
     })
 
